@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="/jquery/jquery.mobile-1.4.5.min.css"> 
 		<script src="/jquery/jquery-1.11.3.min.js"></script> 
 		<script src="/jquery/jquery.mobile-1.4.5.min.js"></script>
-<script type = "phonegap.js"></script>
+		<script type = "phonegap.js"></script>
 		<script type = "cordova.js"></script>
 		<title>Login</title>
 	</head>
@@ -15,7 +15,7 @@
 	function login(){
 			var us = document.getElementById("username").value;
 			var p = document.getElementById("password").value;
-			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/functions/mobilelogin.php?username="+us+"&password="+p,async:false});
+			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/pfunctions/mobilelogin.php?username="+us+"&password="+p,async:false});
 			var response = obj.responseText;
 			 //if (response == "yes"){
 				window.location.href  = response;
