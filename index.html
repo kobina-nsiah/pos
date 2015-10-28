@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+		<link rel="stylesheet" href="/css/themes/my-custom-theme.css" />
+		<link rel="stylesheet" href="/css/themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="/jquery/jquery.mobile-1.4.5.min.css"> 
+		<script src="/jquery/jquery-1.11.3.min.js"></script> 
+		<script src="/jquery/jquery.mobile-1.4.5.min.js"></script>
+<script type = "phonegap.js"></script>
+		<script type = "cordova.js"></script>
+		<title>Login</title>
+	</head>
+	
+	<script>
+	function login(){
+			var us = document.getElementById("username").value;
+			var p = document.getElementById("password").value;
+			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/functions/mobilelogin.php?username="+us+"&password="+p,async:false});
+			var response = obj.responseText;
+			 //if (response == "yes"){
+				window.location.href  = response;
+			// }
+			
+			//document.getElementById("home").innerHTML = response;
+			//document.getElementById("home").attr("data-role", "collapsible");
+			//$('home1').attr("data-role","collapsible");
+		}
+	</script>
+
+	<body>
+		<div data-role="page" id="pageone"  data-theme = "d" > 
+			<div role="main" class="ui-content">
+			<img src = "cell_phone.png" alt="phone" height="25%" width="25%">
+				<form method="post" action="#"> 
+					<div data-role="fieldcontain" id = "form"> 
+						<label for="username">Username</label> <br>
+						<input type="text" name="username" id="username"><br>					
+						<label for="username">Password</label> <br>
+						<input type="password" name="password" id="password"><br>	
+					</div>
+					<input type="submit" value = "Login" onclick = "login()"> 
+				</form>		 
+			</div>						
+		</div>
+	</body> 
+</html>

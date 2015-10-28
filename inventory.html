@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+
+		<link rel="stylesheet" href="/css/themes/my-custom-theme.css" />
+		<link rel="stylesheet" href="/css/themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="/jquery/jquery.mobile-1.4.5.min.css"> 
+		<script src="/jquery/jquery-1.11.3.min.js"></script> 
+		<script src="/jquery/jquery.mobile-1.4.5.min.js"></script>
+<script type = "phonegap.js"></script>
+		<script type = "cordova.js"></script>
+
+		<title>Inventory</title>
+	</head>
+	
+	<script>
+		/*$(document).ready(function(){
+			
+			
+			//alert("Oh yeah clicked");
+			var obj=$.ajax({url:"../functions/viewinventory.php",async:false});
+			var response = obj.responseText;
+			alert(response);
+			$("#home").append(response);		
+			//document.getElementById("home").innerHTML = response;			
+		});*/
+		
+		
+		function viewlist(){
+			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/functions/viewinventory.php",async:false});
+			var response = obj.responseText;
+			document.getElementById("home").innerHTML = response;
+			//document.getElementById("home").attr("data-role", "collapsible");
+			//$('home1').attr("data-role","collapsible");
+		}
+	</script>
+
+	<body>
+		<div data-role="page" id="pageone" data-theme = "d"> 
+			<div data-role="header">
+				<h1>Inventory</h1> 
+				<a href="#"  class = "ui-btn-right" data-transition="flip" data-role="button" data-rel = "back"  data-icon="back">Go back</a>
+				<a href="inventory.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
+				
+				<div data-role="navbar">			
+					<ul> 
+						<li><a href="#" class="ui-btn-active ui-statepersist" data-icon="home" >Inventory</a></li>
+						<li><a href="transaction.html" data-icon="grid" data-transition="fade">Transaction</a></li> 
+					</ul>
+				</div>
+				
+				
+					<a href="#" data-inline="false" data-transition="flip" data-role="button" data-icon="home">View Inventory</a>
+					<a href="addstock.html"  data-inline="false" data-transition="fade" data-role="button">Add to Stock</a>
+					<a href="update_existing.html"  data-inline="false" data-transition="fade" data-role="button">Update Existing Product</a>
+						
+			</div>
+			
+			
+			<div role="main" class="ui-content"> 
+			<button id = "view" onclick = "viewlist()">View List / Refresh List</button>
+				<div id = "home"> </div> 
+			</div>
+			
+		
+		
+			<div data-role="footer"> 
+				<h1>NiftyLad Point of Sales</h1> 
+			</div> 
+		</div> 
+	</body> 
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+	<link rel="stylesheet" href="../css/themes/my-custom-theme.css" />
+		<link rel="stylesheet" href="../css/themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="../jquery/jquery.mobile-1.4.5.min.css"> 
+		<script src="../jquery/jquery-1.11.3.min.js"></script> 
+		<script src="../jquery/jquery.mobile-1.4.5.min.js"></script>
+
+		<title>Add to Stock</title>
+	</head>
+	
+	<script>
+		function save() {
+			var pcode = document.getElementById("pcode").value;
+			var name = document.getElementById("name").value;
+			var sp = document.getElementById("sprice").value;
+			var cp = document.getElementById("cprice").value;
+			var quant = document.getElementById("quantity").value;
+			window.localStorage.setItem("pcode", pcode);
+			window.localStorage.setItem("sprice", sp);
+			window.localStorage.setItem("cprice", cp);
+			window.localStorage.setItem("name", name);
+			window.localStorage.setItem("quantity", quant);
+			alert("Offline save done");
+			
+			document.getElementById("pcode").value = "";
+			document.getElementById("name").value = "";
+			document.getElementById("sprice").value = "";
+			document.getElementById("cprice").value = "";
+			document.getElementById("quantity").value = "";
+		}
+		
+		function sync() {
+			var pcode = window.localStorage.getItem("pcode");
+			
+			if (pcode != null){
+				var name = window.localStorage.getItem("name");
+				var sp = window.localStorage.getItem("sprice");
+				var cp = window.localStorage.getItem("cprice");
+				var quant = window.localStorage.getItem("quantity");
+
+				var obj=$.ajax({url:"../functions/addproduct.php?pcode="+pcode+"&name="+name+"&sprice="+sp+"&cprice="+cp+"&quantity="+quant,async:false});
+			}
+			
+				alert("Sync Done");
+				window.localStorage.clear();
+			
+		}
+		
+		function online(){
+			var pcode = document.getElementById("pcode").value;
+			var name = document.getElementById("name").value;
+			var sp = document.getElementById("sprice").value;
+			var cp = document.getElementById("cprice").value;
+			var quant = document.getElementById("quantity").value;
+		
+			 //if (response == "yes"){
+				//window.location.href  = response;
+			// }
+			var obj=$.ajax({url:"../functions/addproduct.php?pcode="+pcode+"&name="+name+"&sprice="+sp+"&cprice="+cp+"&quantity="+quant,async:false});
+
+			document.getElementById("pcode").value = "";
+			document.getElementById("name").value = "";
+			document.getElementById("sprice").value = "";
+			document.getElementById("cprice").value = "";
+			document.getElementById("quantity").value = "";
+		}
+	</script>
+
+	<body>
+		<div data-role="page" id="pageone" data-theme = "c"> 
+			<div data-role="header">
+				<h1>Inventory - Add to Stock</h1> 
+				<a href="#"  class = "ui-btn-right" data-transition="flip" data-role="button" data-rel = "back"  data-icon="back">Go back</a>
+				<a href="inventory.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
+				
+				<div data-role="navbar">			
+					<ul> 
+						<li><a href="#" data-icon="home" class="ui-btn-active ui-statepersist">Inventory</a></li>
+						<li><a href="transaction.html" data-icon="grid" data-transition="fade">Transaction</a></li> 
+
+					</ul>
+				</div>
+				
+				
+					<a href="inventory.html" data-inline="false" data-transition="flip" data-role="button" data-icon="home">View Inventory</a>
+					<a href="#"  data-inline="false" data-transition="fade" data-role="button">Add to Stock</a>
+					<a href="update_existing.html"  data-inline="false" data-transition="fade" data-role="button">Update Existing Product</a>
+						
+			</div>
+			
+			<div role="main" class="ui-content"> 
+				<p></p> 
+			</div>
+				
+			<form method="post" action="#"> 
+			<div data-role="fieldcontain"> 
+				<label for="pcode">Product Code:</label> 
+				<input type="text" name="pcode" id="pcode">
+		
+				<label for="name">Product Name:</label> 
+				<input type="text" name="name" id="name">
+				
+				<label for="sprice">Selling Price:</label> 
+				<input type="text" name="sprice" id="sprice">
+		
+				<label for="cprice">Cost Price:</label> 
+				<input type="text" name="cprice" id="cprice">
+				
+				<label for="stock_level">Quantity:</label> 
+				<input type="text" name="quantity" id="quantity">
+			</div>
+		<input type="submit" value = "Online Save" onclick = "online()"> 
+	
+		</form>	
+			<button id = "offline" onclick = "save()">Offline Save</button>
+			<button id = "sync" onclick = "sync()">Sync</button>	
+			<div data-role="footer"> 
+				<h1>NiftyLad Point of Sales</h1> 
+			</div> 
+		</div> 
+	</body> 
+</html>

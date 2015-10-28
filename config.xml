@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+ <widget xmlns = "http://www.w3.org/ns/widgets"	
+ xmlns:gap = "http://phonegap.com/ns/1.0"
+ id	= "com.kobina-nsiah.pos"
+ versionCode = "11"	
+ version= "1.0.0">
+ 
+  <name>
+ Point of Sale
+ </name>
+  	
+  <description>	
+  	Sell easily
+  </description>
+ 
+  <author
+ href="http://www.ashesi.edu.gh"
+ email="obed.kobina.nsiah@gmail.com">
+ </author>	
+ 
+ <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.2.0" />
+ <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+ <allow-navigation href="*" />
+ <allow-intent href="*" />
+ <access origin = "*"/>
+ <icon src="icon.png"/>
+ <gap:splash src="splash.png"/>
+ 
+ </widget>
