@@ -14,17 +14,17 @@
 	
 	<script>
 
-	/*cordova.plugins.barcodeScanner.scan(
-      function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
-      }, 
-      function (error) {
-          alert("Scanning failed: " + error);
-      }
-	);*/
+	  
+		function scan(){
+			cordova.plugins.barcodeScanner.scan(
+				function (result) {
+					$('#pcode').val(result.text);
+				}, 
+				function (error) {
+					alert("Scanning failed: " + error);
+				}
+			);				
+		}
 
 		function save() {
 			var pcode = document.getElementById("pcode").value;
@@ -88,18 +88,17 @@
 			<div data-role="header">
 				<h1>Inventory - Add to Stock</h1> 
 				<a href="#"  class = "ui-btn-right" data-transition="flip" data-role="button" data-rel = "back"  data-icon="back">Go back</a>
-				<a href="index.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
+				<a href="inventory.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
 				
 				<div data-role="navbar">			
 					<ul> 
 						<li><a href="#" data-icon="home" class="ui-btn-active ui-statepersist">Inventory</a></li>
-						<li><a href="transaction.html" data-icon="grid" data-transition="fade">Transaction</a></li> 
-
+						<li><a href="transaction.html" data-icon="grid" data-transition="flip">Transaction</a></li> 
 					</ul>
 				</div>
 				
 				
-					<a href="index.html" data-inline="false" data-transition="flip" data-role="button" data-icon="home">View Inventory</a>
+					<a href="inventory.html" data-inline="false" data-transition="fade" data-role="button" data-icon="home">View Inventory</a>
 					<a href="#"  data-inline="false" data-transition="fade" data-role="button">Add to Stock</a>
 					<a href="update_existing.html"  data-inline="false" data-transition="fade" data-role="button">Update Existing Product</a>
 						
@@ -111,6 +110,7 @@
 				
 			<form method="post" action="#"> 
 			<div data-role="fieldcontain"> 
+			<input type="submit" value = "Scan" onclick = "scan()"> 
 				<label for="pcode">Product Code:</label> 
 				<input type="text" name="pcode" id="pcode">
 		

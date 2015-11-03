@@ -12,6 +12,19 @@
 		<title>Add to Stock</title>
 	</head>
 <script>
+
+	  
+		function scan(){
+			cordova.plugins.barcodeScanner.scan(
+				function (result) {
+					$('#pcode').val(result.text);
+				}, 
+				function (error) {
+					alert("Scanning failed: " + error);
+				}
+			);				
+		}
+		
 		function save() {
 			var pcode = document.getElementById("pcode").value;
 			var name = document.getElementById("name").value;
@@ -73,7 +86,7 @@
 			<div data-role="header">
 				<h1>Inventory - Update Product</h1> 
 				<a href="#"  class = "ui-btn-right" data-transition="flip" data-role="button" data-rel = "back"  data-icon="back">Go back</a>
-				<a href="index.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
+				<a href="nventory.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
 				
 				<div data-role="navbar">			
 					<ul> 
@@ -84,7 +97,7 @@
 				</div>
 				
 				
-					<a href="index.html" data-inline="false" data-transition="flip" data-role="button" data-icon="home">View Inventory</a>
+					<a href="inventory.html" data-inline="false" data-transition="fade" data-role="button" data-icon="home">View Inventory</a>
 					<a href="addstock.html"  data-inline="false" data-transition="fade" data-role="button">Add to Stock</a>
 					<a href="#"  data-inline="false" data-transition="fade" data-role="button">Update Existing Product</a>
 						
@@ -97,6 +110,7 @@
 			<form method="post" action="#"> 
 			<div data-role="fieldcontain"> 
 				<label for="pcode">Product Code:</label> 
+				<input type="submit" value = "Scan" onclick = "scan()"> 
 				<input type="text" name="pcode" id="pcode">
 		
 				<label for="name">Product Name:</label> 

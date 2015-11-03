@@ -25,6 +25,20 @@
 			//document.getElementById("home").innerHTML = response;		
 		});*/	
 		var i = 0;
+		
+		
+	  
+		function scan(){
+			cordova.plugins.barcodeScanner.scan(
+				function (result) {
+					$('#pcode0').val(result.text);
+				}, 
+				function (error) {
+					alert("Scanning failed: " + error);
+				}
+			);				
+		}
+
 		function addform(){
 			//var obj=$.ajax({url:"../functions/addform.php",async:false});
 			//var response = obj.responseText;
@@ -150,17 +164,17 @@
 			<div data-role="header">
 				<h1>Transaction</h1> 
 				<a href="#"  class = "ui-btn-right" data-transition="flip" data-role="button" data-rel = "back"  data-icon="back">Go back</a>
-				<a href="index.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
+				<a href="inventory.html"  class = "ui-btn-left" data-transition="flip" data-role="button" data-icon="home">Home</a>
 				
 				<div data-role="navbar">			
 					<ul> 
 						<li><a href="inventory.html" data-icon="home" >Inventory</a></li>
-						<li><a href="#" class="ui-btn-active ui-statepersist" data-icon="grid" data-transition="fade">Transaction</a></li> 
+						<li><a href="#" class="ui-btn-active ui-statepersist" data-icon="grid" data-transition="flip">Transaction</a></li> 
 					</ul>
 				</div>
 				
 				
-					<a href="#" data-inline="false" data-transition="flip" data-role="button" data-icon="home">Make transaction</a>
+					<a href="#" data-inline="false" data-transition="fade" data-role="button" data-icon="home">Make transaction</a>
 					<a href="#"  data-inline="false" data-transition="fade" data-role="button">View Daily Transaction</a>
 						
 			</div>
@@ -170,6 +184,7 @@
 				
 			<form method="get" action="#"> 
 			<div data-role="fieldcontain"> 
+					<input type="submit" value = "Scan" onclick = "scan()"> 
 				<label for="bnum">Buyer's Phone Number:</label> 
 				<input type="text" name="bnum" id="bnum">
 				

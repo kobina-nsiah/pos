@@ -24,6 +24,6 @@
  <allow-intent href="*" />
  <access origin = "*"/>
  <icon src="icon.png"/>
- <gap:splash src="splash.png"/>
+ <gap:splash src="splash.png" />
  
  </widget>
