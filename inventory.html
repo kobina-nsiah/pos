@@ -27,9 +27,9 @@
 		
 		
 		function viewlist(){
-			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/functions/viewinventory.php",async:false});
+			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/pfunctions/viewinventory.php",async:false});
 			var response = obj.responseText;
-			document.getElementById("home").innerHTML = response;
+			$("#home").html(response);
 			//document.getElementById("home").attr("data-role", "collapsible");
 			//$('home1').attr("data-role","collapsible");
 		}

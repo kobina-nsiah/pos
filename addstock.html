@@ -12,9 +12,7 @@
 		<title>Add to Stock</title>
 	</head>
 	
-	<script>
-
-	  
+	<script>	  
 		function scan(){
 			cordova.plugins.barcodeScanner.scan(
 				function (result) {
@@ -27,11 +25,11 @@
 		}
 
 		function save() {
-			var pcode = document.getElementById("pcode").value;
-			var name = document.getElementById("name").value;
-			var sp = document.getElementById("sprice").value;
-			var cp = document.getElementById("cprice").value;
-			var quant = document.getElementById("quantity").value;
+			var pcode = $('#pcode').val();
+			var name = $('#name').val();
+			var sp = $('#sprice').val();
+			var cp = $('#cprice').val();
+			var quant = $('#quantity').val();
 			window.localStorage.setItem("pcode", pcode);
 			window.localStorage.setItem("sprice", sp);
 			window.localStorage.setItem("cprice", cp);
@@ -39,11 +37,11 @@
 			window.localStorage.setItem("quantity", quant);
 			alert("Offline save done");
 			
-			document.getElementById("pcode").value = "";
-			document.getElementById("name").value = "";
-			document.getElementById("sprice").value = "";
-			document.getElementById("cprice").value = "";
-			document.getElementById("quantity").value = "";
+			$('#pcode').val("");
+			$('#name').val("");
+			$('#sprice').val("");
+			$('#cprice').val("");
+			$('#quantity').val("");
 		}
 		
 		function sync() {
@@ -64,22 +62,22 @@
 		}
 		
 		function online(){
-			var pcode = document.getElementById("pcode").value;
-			var name = document.getElementById("name").value;
-			var sp = document.getElementById("sprice").value;
-			var cp = document.getElementById("cprice").value;
-			var quant = document.getElementById("quantity").value;
+			var pcode = $('#pcode').val();
+			var name = $('#name').val();
+			var sp = $('#sprice').val();
+			var cp = $('#cprice').val();
+			var quant = $('#quantity').val();
 		
 			 //if (response == "yes"){
 				//window.location.href  = response;
 			// }
 			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/functions/addproduct.php?pcode="+pcode+"&name="+name+"&sprice="+sp+"&cprice="+cp+"&quantity="+quant,async:false});
 
-			document.getElementById("pcode").value = "";
-			document.getElementById("name").value = "";
-			document.getElementById("sprice").value = "";
-			document.getElementById("cprice").value = "";
-			document.getElementById("quantity").value = "";
+			$('#pcode').val("");
+			$('#name').val("");
+			$('#sprice').val("");
+			$('#cprice').val("");
+			$('#quantity').val("");
 		}
 	</script>
 
