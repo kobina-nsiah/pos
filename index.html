@@ -13,8 +13,8 @@
 	
 	<script>
 	function login(){
-			var us = document.getElementById("username").value;
-			var p = document.getElementById("password").value;
+			var us = $('#username').val();
+			var p = $('#password').val();
 			var obj=$.ajax({url:"http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/pfunctions/mobilelogin.php?username="+us+"&password="+p,async:false});
 			var response = obj.responseText;
 			 //if (response == "yes"){

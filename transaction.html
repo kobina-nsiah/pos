@@ -181,10 +181,9 @@
 			
 			<div role="main" class="ui-content"> 
 				<div id = "home"> </div> 
-				
+			<button onclick = "scan()">Scan"</button>	
 			<form method="get" action="#"> 
 			<div data-role="fieldcontain"> 
-					<input type="submit" value = "Scan" onclick = "scan()"> 
 				<label for="bnum">Buyer's Phone Number:</label> 
 				<input type="text" name="bnum" id="bnum">
 				
@@ -200,9 +199,9 @@
 				
 				<div id = "addmore"></div>
 			</div>
-		<input type="submit" value = "Online Save" onclick = "online()"> 
+		<button onclick = "online()"> Online Save</button> 
 		</form>	
-				<a href="#" id = "addbutton" onclick = "addform()" data-role="button">Add another product</a>
+				<button id = "addbutton" onclick = "addform()">Add another product</button>
 	<button id = "offline" onclick = "save()">Offline Save</button>
 			<button id = "sync" onclick = "sync()">Sync</button>					
 			</div>
