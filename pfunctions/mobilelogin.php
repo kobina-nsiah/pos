@@ -24,7 +24,7 @@
 		else {
 			//set session variables
 					$_SESSION["user"] = $username;
-			echo "inventory.html";
+			echo "addstock.html";
 			//redirect_to index.ph
 					//header("Location: http://cs.ashesi.edu.gh/~csashesi/class2016/obed-nsiah/mobileweb/pos/desktop/inventory.html");
 				//	exit;
