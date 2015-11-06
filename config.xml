@@ -18,12 +18,14 @@
  email="obed.kobina.nsiah@gmail.com">
  </author>	
  
- <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.2.0" />
- <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+
+
  <allow-navigation href="*" />
  <allow-intent href="*" />
  <access origin = "*"/>
  <icon src="icon.png"/>
  <gap:splash src="splash.png" />
+ <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.2.0" />
+ <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
  
  </widget>

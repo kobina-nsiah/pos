@@ -125,13 +125,16 @@
 			
 			
 			<div role="main" class="ui-content"> 
-			<button id = "view" onclick = "viewlist()">View List / Refresh List</button>
-				<div id = "home"> </div> 
+				<div id = 'form' data-role = 'collapsible'>
+				<button id = "view" onclick = "viewlist()">View List / Refresh List</button>
+				<h1>Inventory List</h1>
+					<div id = "home"> </div>
+				</div>
 			</div>
 			
 			<div id = 'form' data-role = 'collapsible'>
 			<h1>Add to Stock</h1>
-			<button onclick = "scan()">Scan</button>
+			<button id = "scanner" onclick = "scan()">Scan</button>
 				
 			<form method="post" action="#"> 
 			<div data-role="fieldcontain">  
@@ -155,7 +158,7 @@
 		</form>	
 			<button id = "offline" onclick = "save()">Offline Save</button>
 			<button id = "sync" onclick = "sync()">Sync</button>	
-		</di>
+		</div>
 		
 			<div data-role="footer"> 
 				<h1>NiftyLad Point of Sales</h1> 
